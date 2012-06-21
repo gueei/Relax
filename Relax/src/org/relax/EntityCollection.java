@@ -1,8 +1,9 @@
 package org.relax;
 
-import android.content.Context;
+import java.util.List;
+
 
 public abstract class EntityCollection<T extends Entity> extends Entity{
 	public abstract T createEntity();
-	public abstract void saveCollection(Context context);
+	public abstract List<T> getEntities();
 }

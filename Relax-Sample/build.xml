@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build-relax" name="Relax">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <property name="bin.dir" value="../Relax/bin"/>
+    <property name="src.dir" value="../Relax/src"/>
+    <path id="Relax.classpath">
+        <pathelement location="../Relax/bin"/>
+        <pathelement location="../../../../../android/platforms/android-4/android.jar"/>
+    </path>
+    <target name="init-relax">
+        <mkdir dir="${bin.dir}"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="${src.dir}">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target depends="init-relax" name="build-relax">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="${src.dir}"/>
+            <classpath refid="Relax.classpath"/>
+        </javac>
+    </target>
+    <target name="jar-relax" description="JAR to Sample" depends="build-relax">
+        <jar destfile="./libs/relax.jar">
+            <fileset dir="${bin.dir}"/>
+        </jar>
+    </target>
+</project>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity xmlns:binding="http://www.gueei.com/android-binding/">
+	<rootView
+	    binding:dataSource="."
+		binding:layoutId="@layout/fbgraphactivity_layout"/>
+	<optionsMenu
+	    binding:dataSource="."
+	    binding:menu="@menu/fbgraphactivity_optionsmenu"/>
+</activity>
